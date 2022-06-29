@@ -10,19 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Xml;
 
 namespace Exercise_4
 {
     /// <summary>
-    /// Logika interakcji dla klasy MainWindow.xaml
+    /// Logika interakcji dla klasy Model.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Model : Window
     {
-        public MainWindow()
+        public Model(XmlNode grupa)
         {
+            DataContext = grupa;
             InitializeComponent();
         }
 
@@ -31,7 +31,7 @@ namespace Exercise_4
             ListBox lista = (ListBox)this.FindName("ListaGrup");
             XmlNode grupa = (XmlNode)lista.SelectedItem;
             if (grupa != null)
-                (new Model(grupa)).Show();
+                (new SzczegolyGrupy(grupa)).Show();
         }
     }
 }
